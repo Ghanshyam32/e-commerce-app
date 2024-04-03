@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1005970456167",
+    "project_id": "shopshop-df680",
+    "storage_bucket": "shopshop-df680.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1005970456167:android:4a18e0e0db919140ed5ec2",
+        "android_client_info": {
+          "package_name": "com.ghanshyam.shopshop"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6PCvtRfxm2xMp8P7tl5YbUrQVbB2Uj0U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
