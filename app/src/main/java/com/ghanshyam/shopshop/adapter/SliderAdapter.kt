@@ -1,7 +1,6 @@
-package com.ghanshyam.shopshop
+package com.ghanshyam.shopshop.adapter
 
 import android.content.Context
-import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterInside
 import com.bumptech.glide.request.RequestOptions
 import com.ghanshyam.shopshop.Model.Slider
+import com.ghanshyam.shopshop.R
 
 class SliderAdapter(private var sliderItems: List<Slider>, private val viewPager2: ViewPager2) :
     RecyclerView.Adapter<SliderAdapter.SliderViewHolder>() {
@@ -33,14 +33,14 @@ class SliderAdapter(private var sliderItems: List<Slider>, private val viewPager
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): SliderAdapter.SliderViewHolder {
+    ): SliderViewHolder {
         context = parent.context
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.slider_item_container, parent, false)
         return SliderViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: SliderAdapter.SliderViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: SliderViewHolder, position: Int) {
         holder.setImage(sliderItems[position], context)
         if (position == sliderItems.lastIndex - 1) {
             viewPager2.post(runnable)

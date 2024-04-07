@@ -2,18 +2,16 @@ package com.ghanshyam.shopshop.activity
 
 import android.os.Bundle
 import android.view.View
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewbinding.ViewBinding
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import com.ghanshyam.shopshop.Model.Slider
-import com.ghanshyam.shopshop.SliderAdapter
+import com.ghanshyam.shopshop.adapter.SliderAdapter
 import com.ghanshyam.shopshop.ViewModel.MainViewModel
+import com.ghanshyam.shopshop.adapter.BrandAdapter
 import com.ghanshyam.shopshop.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -24,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initBanner()
+        initBrand()
     }
 
     private fun initBanner() {
@@ -47,10 +46,21 @@ class MainActivity : AppCompatActivity() {
             addTransformer(MarginPageTransformer(40))
         }
         binding.viewPager.setPageTransformer(compositePageTransformer)
-        if(images.size>1){
+        if (images.size > 1) {
             binding.dotsIndicator.visibility = View.VISIBLE
             binding.dotsIndicator.attachTo(binding.viewPager)
         }
+    }
+
+    private fun initBrand() {
+        binding.brandProgressBar.visibility = View.VISIBLE
+        viewModel.brands.observe(this, Observer {
+            binding.viewBrand.layoutManager =
+                LinearLayoutManager(this@MainActivity, LinearLayoutManager.HORIZONTAL, false)
+            binding.viewBrand.adapter = BrandAdapter(it)
+            binding.brandProgressBar.visibility = View.GONE
+        })
+        viewModel.loadBrand()
     }
 
 }
