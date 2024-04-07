@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.bumptech.glide.disklrucache.DiskLruCache.Value
 import com.ghanshyam.shopshop.Model.Brand
+import com.ghanshyam.shopshop.Model.ItemModel
 import com.ghanshyam.shopshop.Model.Slider
 import com.google.firebase.Firebase
 import com.google.firebase.database.DataSnapshot
@@ -20,6 +21,9 @@ class MainViewModel() : ViewModel() {
 
     private val _brand = MutableLiveData<MutableList<Brand>>()
     val brands: LiveData<MutableList<Brand>> = _brand
+
+    private val _popular = MutableLiveData<MutableList<ItemModel>>()
+    val popular: LiveData<MutableList<ItemModel>> = _popular
 
     fun loadBanners() {
         val ref = firebaseDatabase.getReference("Banner")
@@ -53,6 +57,26 @@ class MainViewModel() : ViewModel() {
                     }
                 }
                 _brand.value = lists
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+            }
+
+        })
+    }
+
+    fun loadPopular() {
+        val Ref = firebaseDatabase.getReference("Items")
+        Ref.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val lists = mutableListOf<ItemModel>()
+                for (childSnapshot in snapshot.children) {
+                    val list = childSnapshot.getValue(ItemModel::class.java)
+                    if (list != null) {
+                        lists.add(list)
+                    }
+                }
+                _popular.value = lists
             }
 
             override fun onCancelled(error: DatabaseError) {

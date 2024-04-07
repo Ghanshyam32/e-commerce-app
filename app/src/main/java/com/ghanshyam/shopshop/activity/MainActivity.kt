@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
@@ -12,6 +13,7 @@ import com.ghanshyam.shopshop.Model.Slider
 import com.ghanshyam.shopshop.adapter.SliderAdapter
 import com.ghanshyam.shopshop.ViewModel.MainViewModel
 import com.ghanshyam.shopshop.adapter.BrandAdapter
+import com.ghanshyam.shopshop.adapter.PopularAdapter
 import com.ghanshyam.shopshop.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -23,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         initBanner()
         initBrand()
+        initPopular()
     }
 
     private fun initBanner() {
@@ -61,6 +64,16 @@ class MainActivity : AppCompatActivity() {
             binding.brandProgressBar.visibility = View.GONE
         })
         viewModel.loadBrand()
+    }
+
+    private fun initPopular() {
+        binding.recommendationProgressBar.visibility = View.VISIBLE
+        viewModel.popular.observe(this, Observer {
+            binding.recommendationLayout.layoutManager = GridLayoutManager(this@MainActivity, 2)
+            binding.recommendationLayout.adapter = PopularAdapter(it)
+            binding.recommendationProgressBar.visibility = View.GONE
+        })
+        viewModel.loadPopular()
     }
 
 }
