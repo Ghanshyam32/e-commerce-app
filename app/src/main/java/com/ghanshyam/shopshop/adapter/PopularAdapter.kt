@@ -8,11 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.request.RequestOptions
-import com.ghanshyam.shopshop.Model.ItemModel
-import com.ghanshyam.shopshop.databinding.ViewholderBrandBinding
+import com.ghanshyam.shopshop.Model.ItemsModel
+import com.ghanshyam.shopshop.activity.DetailActivity
 import com.ghanshyam.shopshop.databinding.ViewholderRecommendedBinding
 
-class PopularAdapter(val items: MutableList<ItemModel>) :
+class PopularAdapter(val items: MutableList<ItemsModel>) :
     RecyclerView.Adapter<PopularAdapter.Viewholder>() {
     private var context: Context? = null
 
@@ -37,9 +37,12 @@ class PopularAdapter(val items: MutableList<ItemModel>) :
             .apply(requestOptions)
             .into(holder.binding.prodPic)
 
-//        holder.itemView.setOnClickListener {
-//            val intent = Intent(holder.itemView.context, )
-//        }
+        holder.itemView.setOnClickListener {
+            val intent = Intent(holder.itemView.context, DetailActivity::class.java)
+            intent.putExtra("object", items[position])
+            holder.itemView.context.startActivity(intent)
+
+        }
     }
 
     override fun getItemCount(): Int = items.size
