@@ -8,7 +8,7 @@
     tools:context=".activity.CartActivity">
 
     <TextView
-        android:id="@+id/empty"
+        android:id="@+id/emptyTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Your cart is empty"
@@ -117,7 +117,7 @@
 
 
             <TextView
-                android:id="@+id/txtview4"
+                android:id="@+id/subtotal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="$-"
@@ -170,7 +170,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/view" />
 
             <TextView
-                android:id="@+id/subtotal"
+                android:id="@+id/totalTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="$-"
@@ -186,6 +186,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout"

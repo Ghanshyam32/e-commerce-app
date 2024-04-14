@@ -1,5 +1,6 @@
 package com.ghanshyam.shopshop.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -26,6 +27,13 @@ class MainActivity : AppCompatActivity() {
         initBanner()
         initBrand()
         initPopular()
+        initBottomMenu()
+    }
+
+    private fun initBottomMenu() {
+        binding.cartBtn.setOnClickListener {
+            startActivity(Intent(this@MainActivity, CartActivity::class.java))
+        }
     }
 
     private fun initBanner() {
