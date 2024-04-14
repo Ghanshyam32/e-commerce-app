@@ -13,6 +13,9 @@
         android:theme="@style/Base.Theme.ShopShop"
         tools:targetApi="31">
         <activity
+            android:name=".activity.CartActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.DetailActivity"
             android:exported="false" />
         <activity
@@ -29,7 +32,7 @@
         </activity>
         <activity
             android:name=".activity.MainActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
     </application>
 
 </manifest>

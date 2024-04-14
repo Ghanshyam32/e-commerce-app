@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.CartActivity">
+
+    <TextView
+        android:id="@+id/empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your cart is empty"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/back" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My cart"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:background="@drawable/grey_bg_top"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Confirm Order"
+            android:background="@drawable/black_bg"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            style="@style/Widget.AppCompat.Button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/constraintLayout3"
+            app:layout_constraintStart_toStartOf="@+id/constraintLayout3"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/txtView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Subtotal"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Delivery Fee"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/txtView"
+                app:layout_editor_absoluteX="0dp" />
+
+            <TextView
+                android:id="@+id/txtView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Total Tax"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtView2" />
+
+
+            <TextView
+                android:id="@+id/txtview4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$-"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/txtView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txtView" />
+
+            <TextView
+                android:id="@+id/delivery_fee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$-"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/txtView2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txtView2" />
+
+            <TextView
+                android:id="@+id/total_tax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$-"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/txtView3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txtView3" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtView3" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:text="Total"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view" />
+
+            <TextView
+                android:id="@+id/subtotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$-"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/viewCart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="16dp" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
